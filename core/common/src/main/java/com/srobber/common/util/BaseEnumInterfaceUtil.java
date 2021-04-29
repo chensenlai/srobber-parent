@@ -21,7 +21,7 @@ public class BaseEnumInterfaceUtil {
 
     /**
      * 扫描包下所有定义的所有枚举接口类
-     * properties或yml配置: srobber.core.enum.base-package
+     * properties或yml配置: srobber.common.enum.base-package
      */
     private static Map<Class<? extends BaseEnum>, List<Class<? extends BaseEnum>>> INTERFACE_CLASS_MAP = new HashMap<>();
 

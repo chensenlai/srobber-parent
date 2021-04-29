@@ -18,7 +18,7 @@ public class BaseEnumConstantUtil {
 
     /**
      * 扫描包下所有定义的所有枚举类
-     * properties或yml配置: srobber.core.enum.base-package
+     * properties或yml配置: srobber.common.enum.base-package
      */
     private static Collection<Class<? extends BaseEnum>> ENUM_CLASS_SET = null;
 

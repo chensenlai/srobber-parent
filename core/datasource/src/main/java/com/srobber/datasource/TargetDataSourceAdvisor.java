@@ -97,7 +97,7 @@ public class TargetDataSourceAdvisor extends DefaultPointcutAdvisor implements B
         }
         //否则默认对加上@TargetDataSource或@Transactional类或方法切面启用增强
         //指定数据源切面: @TargetDataSource类和方法
-        String targetDataSourceExpression = "@annotation(com.srobber.core.datasource.TargetDataSource) || @within(com.srobber.core.datasource.TargetDataSource)";
+        String targetDataSourceExpression = "@annotation(com.srobber.datasource.TargetDataSource) || @within(com.srobber.datasource.TargetDataSource)";
         AspectJExpressionPointcut targetDataSourcePointcut = new AspectJExpressionPointcut();
         targetDataSourcePointcut.setExpression(targetDataSourceExpression);
         targetDataSourcePointcut.setBeanFactory(this.beanFactory);

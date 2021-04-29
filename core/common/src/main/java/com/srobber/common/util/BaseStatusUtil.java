@@ -17,7 +17,7 @@ public class BaseStatusUtil {
 
     /**
      * 扫描包下所有定义的所有枚举类
-     * properties或yml配置: srobber.core.status.base-package
+     * properties或yml配置: srobber.common.status.base-package
      */
     private static Collection<Class<? extends BaseStatus>> STATUS_CLASS_SET = null;
     static {

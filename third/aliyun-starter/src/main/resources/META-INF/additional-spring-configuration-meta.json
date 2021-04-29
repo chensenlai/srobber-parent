@@ -1,18 +1,18 @@
 {
   "properties": [
     {
-      "name": "srobber.manager.third.aliyun.sts.enabled",
+      "name": "srobber.third.aliyun.sts.enabled",
       "type": "java.lang.Boolean",
       "description": "阿里云STS临时帐号授权启用",
       "defaultValue": false
     },
     {
-      "name": "srobber.manager.third.aliyun.sts.access-key-id",
+      "name": "srobber.third.aliyun.sts.access-key-id",
       "type": "java.lang.String",
       "description": "阿里云assumeRole帐号"
     },
     {
-      "name": "srobber.manager.third.aliyun.sts.access-key-secret",
+      "name": "srobber.third.aliyun.sts.access-key-secret",
       "type": "java.lang.String",
       "description": "阿里云assumeRole帐号"
     }

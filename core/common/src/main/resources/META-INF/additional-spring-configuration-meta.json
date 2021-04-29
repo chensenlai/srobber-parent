@@ -1,13 +1,13 @@
 {
   "properties": [
     {
-      "name": "srobber.core.enum.base-package",
+      "name": "srobber.common.enum.base-package",
       "type": "java.lang.String",
       "description": "枚举类包扫描起始包, 多个用,|;| | 分隔",
       "defaultValue": "com.srobber"
     },
     {
-      "name": "srobber.core.status.base-package",
+      "name": "srobber.common.status.base-package",
       "type": "java.lang.String",
       "description": "响应状态类包扫描起始包, 多个用,|;| | 分隔",
       "defaultValue": "com.srobber"
