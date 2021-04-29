@@ -1,0 +1,11 @@
+{
+  "properties": [
+    {
+      "name": "srobber.third.apple.oauth.enabled",
+      "type": "java.lang.Boolean",
+      "description": "苹果帐号授权启用",
+      "defaultValue": false
+    }
+  ]
+}
+

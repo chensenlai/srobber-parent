@@ -1,0 +1,6 @@
+# Run Listeners
+org.springframework.boot.SpringApplicationRunListener=\
+com.srobber.common.spring.EnvironmentContext
+
+# Auto Configure
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=

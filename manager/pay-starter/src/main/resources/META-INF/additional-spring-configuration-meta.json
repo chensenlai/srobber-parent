@@ -1,0 +1,92 @@
+{
+  "properties": [
+    {
+      "name": "srobber.manager.pay.alipay.enabled",
+      "type": "java.lang.Boolean",
+      "description": "支付宝支付开关",
+      "defaultValue": true
+    },
+    {
+      "name": "srobber.manager.pay.alipay.seller-id",
+      "type": "java.lang.String",
+      "description": "支付宝商户号"
+    },
+    {
+      "name": "srobber.manager.pay.alipay.app-id",
+      "type": "java.lang.String",
+      "description": "支付宝应用ID"
+    },
+    {
+      "name": "srobber.manager.pay.alipay.app-private-key",
+      "type": "java.lang.String",
+      "description": "支付宝应用私钥"
+    },
+    {
+      "name": "srobber.manager.pay.alipay.alipay-publicKey",
+      "type": "java.lang.String",
+      "description": "支付宝公钥"
+    },
+    {
+      "name": "srobber.manager.pay.alipay.return-url",
+      "type": "java.lang.String",
+      "description": "支付宝回调客户端通知地址"
+    },
+    {
+      "name": "srobber.manager.pay.alipay.notify-url",
+      "type": "java.lang.String",
+      "description": "支付宝回调后台通知地址"
+    },
+    {
+      "name": "srobber.manager.pay.alipay.sign-type",
+      "type": "java.lang.String",
+      "description": "签名类型(RSA/RSA2)"
+    },
+
+
+    {
+      "name": "srobber.manager.pay.wxpay.enabled",
+      "type": "java.lang.Boolean",
+      "description": "微信支付开关",
+      "defaultValue": true
+    },
+    {
+      "name": "srobber.manager.pay.wxpay.mch-id",
+      "type": "java.lang.String",
+      "description": "微信支付商户号"
+    },
+    {
+      "name": "srobber.manager.pay.wxpay.app-id",
+      "type": "java.lang.String",
+      "description": "微信应用ID"
+    },
+    {
+      "name": "srobber.manager.pay.wxpay.notify-url",
+      "type": "java.lang.String",
+      "description": "微信支付回调后台通知地址"
+    },
+    {
+      "name": "srobber.manager.pay.wxpay.sign-type",
+      "type": "java.lang.String",
+      "description": "微信签名类型(MD5/HMACSHA256)"
+    },
+    {
+      "name": "srobber.manager.pay.wxpay.key",
+      "type": "java.lang.String",
+      "description": "微信支付key"
+    },
+
+
+    {
+      "name": "srobber.manager.pay.apple.enabled",
+      "type": "java.lang.Boolean",
+      "description": "苹果支付开关",
+      "defaultValue": true
+    },
+    {
+      "name": "srobber.manager.pay.apple.password",
+      "type": "java.lang.String",
+      "description": "苹果支付支付密码"
+    }
+  ]
+}
+

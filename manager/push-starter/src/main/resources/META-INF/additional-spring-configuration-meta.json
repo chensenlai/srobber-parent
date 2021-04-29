@@ -1,0 +1,63 @@
+{
+  "properties": [
+    {
+      "name": "srobber.manager.push.type",
+      "type": "com.srobber.manager.push.PushClientType",
+      "description": "推送客户端类型",
+      "defaultValue": "umeng"
+    },
+    {
+      "name": "srobber.manager.push.umeng.android-appkey",
+      "type": "java.lang.String",
+      "description": "Android应用Appkey"
+    },
+    {
+      "name": "srobber.manager.push.umeng.android-app-master-secret",
+      "type": "java.lang.String",
+      "description": "Android应用AppMasterSecret"
+    },
+    {
+      "name": "srobber.manager.push.umeng.ios-appkey",
+      "type": "java.lang.String",
+      "description": "iOS应用Appkey"
+    },
+    {
+      "name": "srobber.manager.push.umeng.ios-app-master-secret",
+      "type": "java.lang.String",
+      "description": "iOS应用AppMasterSecret"
+    },
+
+    {
+      "name": "srobber.manager.push.xinge.android-app-id",
+      "type": "java.lang.String",
+      "description": "Android应用AppId"
+    },
+    {
+      "name": "srobber.manager.push.xinge.android-secret-key",
+      "type": "java.lang.String",
+      "description": "Android应用SecretKey"
+    },
+    {
+      "name": "srobber.manager.push.xinge.ios-app-id",
+      "type": "java.lang.String",
+      "description": "iOS应用AppId"
+    },
+    {
+      "name": "srobber.manager.push.xinge.ios-secret-key",
+      "type": "java.lang.String",
+      "description": "iOS应用SecretKey"
+    },
+
+    {
+      "name": "srobber.manager.push.jpush.master-secret",
+      "type": "java.lang.String",
+      "description": "应用masterSecret"
+    },
+    {
+      "name": "srobber.manager.push.jpush.app-key",
+      "type": "java.lang.String",
+      "description": "应用appKey"
+    }
+  ]
+}
+

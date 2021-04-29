@@ -1,0 +1,21 @@
+{
+  "properties": [
+    {
+      "name": "srobber.third.agora.rtc.enabled",
+      "type": "java.lang.Boolean",
+      "description": "声网RTCToken是否启用",
+      "defaultValue": false
+    },
+    {
+      "name": "srobber.third.agora.rtc.app-id",
+      "type": "java.lang.String",
+      "description": "声网appId"
+    },
+    {
+      "name": "srobber.third.agora.rtc.app-certificate",
+      "type": "java.lang.String",
+      "description": "声网appCertificate"
+    }
+  ]
+}
+

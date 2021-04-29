@@ -1,0 +1,26 @@
+{
+  "properties": [
+    {
+      "name": "srobber.manager.oss.type",
+      "type": "com.srobber.manager.oss.OssClientType",
+      "description": "OSS客户端类型",
+      "defaultValue": "aliyun"
+    },
+    {
+      "name": "srobber.manager.oss.aliyun.endpoint",
+      "type": "java.lang.String",
+      "description": "阿里云OSS endpoint"
+    },
+    {
+      "name": "srobber.manager.oss.aliyun.access-key-id",
+      "type": "java.lang.String",
+      "description": "阿里云账号(可以是RAM授权子帐号)"
+    },
+    {
+      "name": "srobber.manager.oss.aliyun.access-key-secret",
+      "type": "java.lang.String",
+      "description": "阿里云账号(可以是RAM授权子帐号)"
+    }
+  ]
+}
+

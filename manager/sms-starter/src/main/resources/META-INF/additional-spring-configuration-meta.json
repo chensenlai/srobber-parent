@@ -1,0 +1,53 @@
+{
+  "properties": [
+    {
+      "name": "srobber.manager.sms.type",
+      "type": "com.srobber.manager.sms.SmsClientType",
+      "description": "短信客户端类型",
+      "defaultValue": "aliyun"
+    },
+
+    {
+      "name": "srobber.manager.sms.aliyun.access-key-id",
+      "type": "java.lang.String",
+      "description": "阿里云短信accessKeyId"
+    },
+    {
+      "name": "srobber.manager.sms.aliyun.access-secret",
+      "type": "java.lang.String",
+      "description": "阿里云短信accessSecret"
+    },
+    {
+      "name": "srobber.manager.sms.aliyun.sign-name",
+      "type": "java.lang.String",
+      "description": "阿里云短信signName"
+    },
+
+    {
+      "name": "srobber.manager.sms.xuanwu.user",
+      "type": "java.lang.String",
+      "description": "玄武短信帐号用户"
+    },
+    {
+      "name": "srobber.manager.sms.xuanwu.psw",
+      "type": "java.lang.String",
+      "description": "玄武短信帐号密码"
+    },
+    {
+      "name": "srobber.manager.sms.xuanwu.ip",
+      "type": "java.lang.String",
+      "description": "玄武短信网关IP"
+    },
+    {
+      "name": "srobber.manager.sms.xuanwu.mt-port",
+      "type": "java.lang.Integer",
+      "description": "玄武短信用于发送信息端口"
+    },
+    {
+      "name": "srobber.manager.sms.xuanwu.mo-port",
+      "type": "java.lang.Integer",
+      "description": "玄武短信用于获取账号信息、上行、状态报告端口"
+    }
+  ]
+}
+

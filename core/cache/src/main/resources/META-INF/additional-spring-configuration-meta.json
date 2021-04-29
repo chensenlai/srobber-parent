@@ -1,0 +1,10 @@
+{
+  "properties": [
+    {
+      "name": "srobber.cache.list",
+      "type": "java.util.List<com.srobber.cache.config.MultiCacheProperties.CacheConfig>",
+      "description": "多个Cache配置"
+    }
+  ]
+}
+

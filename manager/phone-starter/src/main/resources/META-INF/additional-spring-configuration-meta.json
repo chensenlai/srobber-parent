@@ -1,0 +1,48 @@
+{
+  "properties": [
+    {
+      "name": "srobber.manager.phone.type",
+      "type": "com.srobber.manager.phone.PhoneClientType",
+      "description": "号码客户端类型",
+      "defaultValue": "aliyun"
+    },
+    {
+      "name": "srobber.manager.phone.aliyun.region-id",
+      "type": "java.lang.String",
+      "description": "阿里云regionId"
+    },
+    {
+      "name": "srobber.manager.phone.aliyun.access-key-id",
+      "type": "java.lang.String",
+      "description": "阿里云账号(可以是RAM授权子帐号)"
+    },
+    {
+      "name": "srobber.manager.oss.aliyun.access-key-secret",
+      "type": "java.lang.String",
+      "description": "阿里云账号(可以是RAM授权子帐号)"
+    },
+    {
+      "name": "srobber.manager.phone.shanyan.app-id",
+      "type": "java.lang.String",
+      "description": "创蓝闪验appId"
+    },
+    {
+      "name": "srobber.manager.phone.shanyan.app-key",
+      "type": "java.lang.String",
+      "description": "创蓝闪验appKey"
+    },
+    {
+      "name": "srobber.manager.phone.shanyan.encrypt-type",
+      "type": "java.lang.String",
+      "description": "创蓝闪验加解密类型0-AES 1-RSA(非必填, 默认0)",
+      "defaultValue": "0"
+    },
+    {
+      "name": "srobber.manager.phone.shanyan.private-key",
+      "type": "java.lang.String",
+      "description": "创蓝闪验类型1-RSA对应私钥(非必填)",
+      "defaultValue": ""
+    }
+  ]
+}
+

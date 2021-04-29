@@ -1,0 +1,35 @@
+{
+  "properties": [
+    {
+      "name": "srobber.datasource.type",
+      "type": "java.lang.Class<? extends javax.sql.DataSource>",
+      "description": "主从数据源内置数据源实现类型"
+    },
+    {
+      "name": "srobber.datasource.driver-class-name",
+      "type": "java.lang.String",
+      "description": "主从数据源内置数据源驱动"
+    },
+    {
+      "name": "srobber.datasource.master",
+      "type": "com.srobber.datasource.MasterSlaveDataSourceProperties.DataSourceConfig",
+      "description": "主库数据源配置"
+    },
+    {
+      "name": "srobber.datasource.slave-list",
+      "type": "java.util.List<com.srobber.datasource.MasterSlaveDataSourceProperties.DataSourceConfig>",
+      "description": "从库数据源配置"
+    },
+    {
+      "name": "srobber.datasource.pointcut-expression",
+      "type": "java.lang.String",
+      "description": "AsrobberectJ表达式,指定那些切面需要增强. 如果没有配置,默认对注解@TargetDataSource或@Transactional类或方法切面启用增强"
+    },
+    {
+      "name": "srobber.datasource.readonly-method-list",
+      "type": "java.util.List<java.lang.String>",
+      "description": "默认走从库的只读方法名前缀. 如果没有配置,默认${READONLY_METHOD_LIST}配置方法名前缀走从库"
+    }
+  ]
+}
+

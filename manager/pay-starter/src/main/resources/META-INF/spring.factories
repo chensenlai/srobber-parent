@@ -1,0 +1,5 @@
+# Auto Configure
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+com.srobber.manager.pay.AlipayAutoConfiguration,\
+com.srobber.manager.pay.WxpayAutoConfiguration,\
+com.srobber.manager.pay.ApplePayAutoConfiguration

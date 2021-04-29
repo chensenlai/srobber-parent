@@ -1,0 +1,154 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="applicable-device" content="pc">
+    <meta name="renderer" content="webkit">
+    <meta name="force-rendering" content="webkit">
+    <meta name="google" value="notranslate">
+    <link rel="stylesheet" href="github-markdown.css">
+    <title>API接口规范</title>
+</head>
+<body class="markdown-body">
+<h3 id="接口签名">接口签名</h3>
+<p>签名算法描述:</p>
+<ol>
+    <li>接口带上时间参数(参数名: _timestamp, 参数值: 当前时间)</li>
+    <li>所有请求参数(注意body参数不参与签名), 按字典排序</li>
+    <li>再加上签名key(参数名: _signKey, 参数值: 服务端提供), 格式化成key1=value1&amp;key2=value2字符串格式</li>
+    <li>32位MD5大写2点描述字符串, 生成签名.</li>
+    <li>接口参数不要带上_signKey参数, 带上签名(参数名: _sign, 参数值: 第3步签名结果)</li>
+</ol>
+<p>举个例子:
+    请求参数: userId=1&amp;nickName=test  APP签名key: myappkey</p>
+<ol>
+    <li>userId=1&amp;nickName=test&amp;_timestamp=123456</li>
+    <li>_timestamp=123456&amp;nickName=test&amp;userId=1</li>
+    <li>_timestamp=123456&amp;nickName=test&amp;userId=1&amp;_signKey=myappkey</li>
+    <li>DC6ECC6E695D44941EBB885CB30329AF</li>
+    <li>userId=1&amp;nickName=test&amp;_timestamp=123456&amp;_sign=DC6ECC6E695D44941EBB885CB30329AF</li>
+</ol>
+<h3 id="自定义头部说明">自定义头部说明</h3>
+<table>
+    <thead>
+    <tr>
+        <th>header</th>
+        <th>value</th>
+    </tr>
+    </thead>
+    <tbody><tr>
+        <td>Auth-Token</td>
+        <td>用户登录token,客户端登录后统一把登录token放到自定义头部上</td>
+    </tr>
+    <tr>
+        <td>Auth-User-Agent</td>
+        <td>客户端系统iOS/Android/H5/PC#应用市场#运营商#客户端信息#app版本号(int)</td>
+    </tr>
+    <tr>
+        <td>Device</td>
+        <td>客户端系统设备唯一码</td>
+    </tr>
+    </tbody></table>
+<p>说明:</p>
+<ol>
+    <li>token 30分钟有效, 客户端自行换token, 续延登录状态.
+        调用自动登录接口, 接口返回非200,则踢出登录,不再重试.</li>
+    <li>客户端系统iOS/Android/H5/PC#应用市场#运营商#客户端信息#app版本号(int) </li>
+</ol>
+<ul>
+    <li>客户端os-区分iOS和Android</li>
+    <li>应用市场-客户端自行定义(32字符长度限制)</li>
+    <li>运营商-CMCC(移动)/CUCC(联通)/CTCC(电信)等, 未知传unknown</li>
+    <li>客户端信息-手机型号等信息</li>
+    <li>app版本号(int) - 客户端自行维护, APP升级就加1</li>
+</ul>
+<p>举个例子:
+    Android#xiaoMi#CUCC#wifi#RedMi K30#101</p>
+<p>表示红米K30的android手机从小米应用市场下载APP, 联通用户,使用wifi流量</p>
+<h3 id="客户端资源缓存管理">客户端资源缓存管理</h3>
+<p>APP打开获取资源缓存定义列表, 客户端根据缓存版本号决定是否更新本地缓存.
+</p>
+</p>
+<h3 id="统一跳转">统一跳转</h3>
+<p>
+</p>
+<h3 id="webview约束">webview约束</h3>
+<p>禁用缓存</p>
+<h3 id="接口响应说明">接口响应说明</h3>
+<p>单个处理:  </p>
+<table>
+    <thead>
+    <tr>
+        <th>字段</th>
+        <th>含义</th>
+    </tr>
+    </thead>
+    <tbody><tr>
+        <td>code</td>
+        <td>响应码 (见接口文档-系统管理响应码定义)</td>
+    </tr>
+    <tr>
+        <td>msg</td>
+        <td>操作提示</td>
+    </tr>
+    <tr>
+        <td>data</td>
+        <td>业务数据(json格式)</td>
+    </tr>
+    </tbody></table>
+<pre><code>{
+  &quot;code&quot;: 200,
+  &quot;msg&quot;: &quot;&quot;,
+  &quot;data&quot; {
+    &quot;userId&quot; : 10000001,
+    &quot;nickName&quot; : &quot;测试&quot;
+   }
+}</code></pre>
+<p>批量处理:</p>
+<table>
+    <thead>
+    <tr>
+        <th>字段</th>
+        <th>含义</th>
+    </tr>
+    </thead>
+    <tbody><tr>
+        <td>code</td>
+        <td>响应码 (见接口文档-系统管理响应码定义)</td>
+    </tr>
+    <tr>
+        <td>msg</td>
+        <td>操作提示</td>
+    </tr>
+    <tr>
+        <td>total</td>
+        <td>记录处理数</td>
+    </tr>
+    <tr>
+        <td>success</td>
+        <td>记录成功处理数</td>
+    </tr>
+    <tr>
+        <td>dataList</td>
+        <td>处理数据列表</td>
+    </tr>
+    </tbody></table>
+<pre><code>{
+  &quot;code&quot;: 200,
+  &quot;msg&quot;: &quot;&quot;,
+  &quot;total&quot;: 100,
+  &quot;success&quot;: 100,
+  &quot;dataList&quot; [
+    {
+        &quot;userId&quot; : 10000001,
+        &quot;nickName&quot; : &quot;测试&quot;
+    },
+    ...
+  ]
+}</code></pre>
+
+</body>
+</html>

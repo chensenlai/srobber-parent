@@ -1,0 +1,39 @@
+{
+  "properties": [
+    {
+      "name": "srobber.third.wechat.oauth.enabled",
+      "type": "java.lang.Boolean",
+      "description": "微信帐号授权启用",
+      "defaultValue": false
+    },
+    {
+      "name": "srobber.third.wechat.oauth.appid",
+      "type": "java.lang.String",
+      "description": "微信应用appid"
+    },
+    {
+      "name": "srobber.third.wechat.oauth.app-secret",
+      "type": "java.lang.String",
+      "description": "微信应用appSecret"
+    },
+
+
+    {
+      "name": "srobber.third.wechat.jsapi.enabled",
+      "type": "java.lang.Boolean",
+      "description": "微信jsapi启用",
+      "defaultValue": false
+    },
+    {
+      "name": "srobber.third.wechat.jsapi.appid",
+      "type": "java.lang.String",
+      "description": "微信应用appid"
+    },
+    {
+      "name": "srobber.third.wechat.jsapi.app-secret",
+      "type": "java.lang.String",
+      "description": "微信应用appSecret"
+    }
+  ]
+}
+

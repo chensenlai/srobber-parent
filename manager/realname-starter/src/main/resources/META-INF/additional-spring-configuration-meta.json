@@ -1,0 +1,45 @@
+{
+  "properties": [
+    {
+      "name": "srobber.manager.realname.type",
+      "type": "com.srobber.manager.realname.RealnameClientType",
+      "description": "实人认证客户端类型",
+      "defaultValue": "baidu"
+    },
+    {
+      "name": "srobber.manager.realname.baidu.app-id",
+      "type": "java.lang.String",
+      "description": "百度应用AppId"
+    },
+    {
+      "name": "srobber.manager.realname.baidu.api-key",
+      "type": "java.lang.String",
+      "description": "百度应用ApiKey"
+    },
+    {
+      "name": "srobber.manager.realname.baidu.secret-key",
+      "type": "java.lang.String",
+      "description": "百度应用SecretKey"
+    },
+    {
+      "name": "srobber.manager.realname.baidu.quality-control",
+      "type": "java.lang.String",
+      "description": "图片质量控制 NONE: 不进行控制, LOW:较低的质量要求, NORMAL: 一般的质量要求, HIGH: 较高的质量要求",
+      "defaultValue": "NORMAL"
+    },
+
+    {
+      "name": "srobber.manager.realname.baidu.liveness-control",
+      "type": "java.lang.String",
+      "description": "活体检测控制 NONE: 不进行控制, LOW:较低的活体要求(高通过率 低攻击拒绝率), NORMAL: 一般的活体要求(平衡的攻击拒绝率, 通过率), HIGH: 较高的活体要求(高攻击拒绝率 低通过率) ",
+      "defaultValue": "NORMAL"
+    },
+    {
+      "name": "srobber.manager.realname.baidu.score",
+      "type": "java.lang.String",
+      "description": "活体通过粉数",
+      "defaultValue": 0.8
+    }
+  ]
+}
+

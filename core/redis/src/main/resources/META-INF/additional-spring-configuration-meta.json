@@ -1,0 +1,10 @@
+{
+  "properties": [
+    {
+      "name": "srobber.redis.list",
+      "type": "java.util.List<com.srobber.redis.config.MultiRedisTemplateProperties.RedisConfig>",
+      "description": "多个RedisTemplate配置"
+    }
+  ]
+}
+

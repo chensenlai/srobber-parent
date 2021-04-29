@@ -1,0 +1,21 @@
+{
+  "properties": [
+    {
+      "name": "srobber.manager.im.type",
+      "type": "com.srobber.manager.im.ImClientType",
+      "description": "IM客户端类型",
+      "defaultValue": "rongcloud"
+    },
+    {
+      "name": "srobber.manager.im.rongcloud.app-key",
+      "type": "java.lang.String",
+      "description": "融云应用appKey"
+    },
+    {
+      "name": "srobber.manager.im.rongcloud.app-secret",
+      "type": "java.lang.String",
+      "description": "融云应用appSecret"
+    }
+  ]
+}
+
