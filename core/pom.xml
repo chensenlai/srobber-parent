@@ -26,5 +26,6 @@
     <module>ratelimiter</module>
     <module>log</module>
     <module>auth</module>
+    <module>mybatis</module>
   </modules>
 </project>

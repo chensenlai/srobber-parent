@@ -1,10 +1,10 @@
-package com.srobber.common.config;
+package com.srobber.mybatis.config;
 
 import com.baomidou.mybatisplus.autoconfigure.ConfigurationCustomizer;
 import com.baomidou.mybatisplus.core.MybatisConfiguration;
 import com.baomidou.mybatisplus.extension.plugins.PaginationInterceptor;
-import com.srobber.common.mybatis.plugin.SqlMonitorInterceptor;
-import com.srobber.common.mybatis.type.BaseEnumTypeHandler;
+import com.srobber.mybatis.plugin.SqlMonitorInterceptor;
+import com.srobber.mybatis.type.BaseEnumTypeHandler;
 import com.srobber.common.enums.BaseEnum;
 import com.srobber.common.util.BaseEnumUtil;
 import org.apache.ibatis.type.TypeHandlerRegistry;

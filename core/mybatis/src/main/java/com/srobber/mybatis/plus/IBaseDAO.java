@@ -1,4 +1,4 @@
-package com.srobber.common.mybatis.plus;
+package com.srobber.mybatis.plus;
 
 import com.baomidou.mybatisplus.core.conditions.Wrapper;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;

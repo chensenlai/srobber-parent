@@ -1,4 +1,4 @@
-package com.srobber.common.mybatis.type;
+package com.srobber.mybatis.type;
 
 import com.srobber.common.enums.BaseEnum;
 import com.srobber.common.util.BaseEnumUtil;

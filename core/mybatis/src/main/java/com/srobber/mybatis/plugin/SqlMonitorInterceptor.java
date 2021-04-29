@@ -1,4 +1,4 @@
-package com.srobber.common.mybatis.plugin;
+package com.srobber.mybatis.plugin;
 
 import com.srobber.common.enums.BaseEnum;
 import com.srobber.common.spring.EnvironmentContext;

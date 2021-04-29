@@ -84,6 +84,11 @@
         <artifactId>srobber-auth</artifactId>
         <version>${package.version}</version>
       </dependency>
+      <dependency>
+        <groupId>com.srobber</groupId>
+        <artifactId>srobber-mybatis</artifactId>
+        <version>${package.version}</version>
+      </dependency>
 
       <!-- 自定义短信发送模块 -->
       <dependency>
@@ -268,6 +273,11 @@
         <groupId>org.mybatis.spring.boot</groupId>
         <artifactId>mybatis-spring-boot-starter</artifactId>
         <version>2.1.0</version>
+      </dependency>
+      <dependency>
+        <groupId>com.baomidou</groupId>
+        <artifactId>mybatis-plus</artifactId>
+        <version>${mybatis-plus.version}</version>
       </dependency>
       <dependency>
         <groupId>com.baomidou</groupId>
