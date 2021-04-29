@@ -2,8 +2,8 @@ package springfox.documentation.service;
 
 import com.google.common.base.Function;
 import com.google.common.collect.Maps;
-import io.swagger.models.HttpMethod;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.http.HttpMethod;
 import springfox.documentation.schema.ModelReference;
 
 import java.util.*;
