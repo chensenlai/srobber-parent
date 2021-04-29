@@ -19,6 +19,7 @@
         <dependency>
             <groupId>com.srobber</groupId>
             <artifactId>srobber-cache</artifactId>
+            <optional>true</optional>
         </dependency>
         <dependency>
             <groupId>org.projectlombok</groupId>

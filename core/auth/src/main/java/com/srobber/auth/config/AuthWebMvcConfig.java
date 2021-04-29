@@ -8,17 +8,17 @@ import com.srobber.auth.spring.mvc.interceptor.AuthInterceptor;
 import com.srobber.auth.spring.mvc.resolver.UserAgentMethodArgumentResolver;
 import com.srobber.auth.spring.mvc.resolver.UserDeviceMethodArgumentResolver;
 import com.srobber.auth.spring.mvc.resolver.UserLoginMethodArgumentResolver;
-import com.srobber.auth.support.DefaultUserAgentInfoStore;
-import com.srobber.auth.support.DefaultUserDeviceInfoStore;
-import com.srobber.auth.support.DefaultUserLoginInfoStore;
-import com.srobber.auth.support.TokenCacheManagerImpl;
+import com.srobber.auth.support.*;
 import com.srobber.cache.Cache;
 import com.srobber.cache.MultiCache;
+import com.srobber.common.spring.SpringContext;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.stereotype.Component;
+import org.springframework.context.annotation.Primary;
 import org.springframework.web.method.support.HandlerMethodArgumentResolver;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
@@ -102,11 +102,13 @@ public class AuthWebMvcConfig implements WebMvcConfigurer {
         return authInterceptor;
     }
 
-    @Bean
-    @ConditionalOnMissingBean(name="tokenCacheManager")
-    @Autowired(required = false)
-    public TokenCacheManager tokenCacheManager(MultiCache multiCache) {
-        TokenCacheManagerImpl tokenCacheManager = new TokenCacheManagerImpl();
+    @Primary
+    @Bean(name="remoteTokenCacheManager")
+    @ConditionalOnClass(name = "com.srobber.cache.MultiCache")
+    @ConditionalOnMissingBean(name={"tokenCacheManager", "remoteTokenCacheManager"})
+    public TokenCacheManager remoteTokenCacheManager() {
+        RemoteTokenCacheManager tokenCacheManager = new RemoteTokenCacheManager();
+        MultiCache multiCache = SpringContext.getBean(MultiCache.class);
         if(multiCache != null) {
             Cache remoteTokenCache = multiCache.choose("token");
             if(remoteTokenCache == null) {
@@ -114,6 +116,13 @@ public class AuthWebMvcConfig implements WebMvcConfigurer {
             }
             tokenCacheManager.setRemoteTokenCache(remoteTokenCache);
         }
+        return tokenCacheManager;
+    }
+
+    @Bean(name = "localTokenCacheManager")
+    @ConditionalOnMissingBean(name={"tokenCacheManager", "localTokenCacheManager", "remoteTokenCacheManager"})
+    public TokenCacheManager localTokenCacheManager() {
+        LocalTokenCacheManager tokenCacheManager = new LocalTokenCacheManager();
         return tokenCacheManager;
     }
 

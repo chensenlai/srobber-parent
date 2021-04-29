@@ -17,18 +17,16 @@ import java.util.concurrent.Delayed;
 import java.util.concurrent.TimeUnit;
 
 /**
+ * 本地缓存
  * 登录token缓存管理器
  *
  * @author chensenlai
  */
 @Slf4j
-public class TokenCacheManagerImpl implements TokenCacheManager, InitializingBean {
+public class LocalTokenCacheManager implements TokenCacheManager, InitializingBean {
 
     private DelayQueue<DelayedToken> deleteTokenQueue = new DelayQueue<>();
     private int timeoutMillis = 30*1000;
-
-    @Setter
-    private com.srobber.cache.Cache remoteTokenCache;
 
     private Cache<String, UserLoginInfo> localTokenCache = CacheBuilder.newBuilder()
             .expireAfterWrite(30, TimeUnit.MINUTES)
@@ -38,22 +36,12 @@ public class TokenCacheManagerImpl implements TokenCacheManager, InitializingBea
     public String putLoginInfo(UserLoginInfo loginInfo) {
         String token = StringUtil.uuid();
         localTokenCache.put(token, loginInfo);
-        if(remoteTokenCache != null) {
-            remoteTokenCache.set(token, loginInfo);
-        }
         return token;
     }
 
     @Override
     public UserLoginInfo getLoginInfo(String token) {
-        UserLoginInfo userLoginInfo = localTokenCache.getIfPresent(token);
-        if(userLoginInfo == null) {
-            if(remoteTokenCache != null) {
-                userLoginInfo = remoteTokenCache.get(token);
-                localTokenCache.put(token, userLoginInfo);
-            }
-        }
-        return userLoginInfo;
+        return localTokenCache.getIfPresent(token);
     }
 
     @Override
@@ -66,6 +54,17 @@ public class TokenCacheManagerImpl implements TokenCacheManager, InitializingBea
 
     @Override
     public void afterPropertiesSet() throws Exception {
+
+        this.startCleanExpireToken();
+
+        if(!EnvironmentContext.isProdEnv()) {
+            UserLoginInfo loginInfo = new UserLoginInfo();
+            loginInfo.setUserId(10000001);
+            localTokenCache.put("123456", loginInfo);
+        }
+    }
+
+    private void startCleanExpireToken() {
         Thread tokenCleanThread = new Thread(()->{
             while(true) {
                 try {
@@ -73,9 +72,6 @@ public class TokenCacheManagerImpl implements TokenCacheManager, InitializingBea
                     if(delayedToken != null) {
                         String token = delayedToken.getToken();
                         localTokenCache.invalidate(token);
-                        if(remoteTokenCache != null) {
-                            remoteTokenCache.delete(token);
-                        }
                     }
                 } catch (Exception e) {
                     log.warn("token clean error", e);
@@ -84,15 +80,6 @@ public class TokenCacheManagerImpl implements TokenCacheManager, InitializingBea
         });
         tokenCleanThread.setName("token-cleaner");
         tokenCleanThread.start();
-
-        if(!EnvironmentContext.isProdEnv()) {
-            UserLoginInfo loginInfo = new UserLoginInfo();
-            loginInfo.setUserId(10000001);
-            localTokenCache.put("123456", loginInfo);
-            if(remoteTokenCache != null) {
-                remoteTokenCache.set("123456", loginInfo);
-            }
-        }
     }
 
     @Getter
