@@ -1,6 +1,7 @@
 package com.srobber.common.util;
 
 import com.srobber.common.exeption.BusinessException;
+import lombok.Getter;
 import org.joda.time.DateTime;
 
 import java.text.ParseException;
@@ -102,7 +103,8 @@ public class DateFormatUtil {
      * ss  秒
      * SSS 毫秒
      */
-    public static enum Pattern {
+    @Getter
+    public enum Pattern {
 
         YYYY_MM_DD_HH_MM_SS_SSS("yyyy-MM-dd HH:mm:ss.SSS"),
         YYYY_MM_DD_HH_MM_SS("yyyy-MM-dd HH:mm:ss"),
