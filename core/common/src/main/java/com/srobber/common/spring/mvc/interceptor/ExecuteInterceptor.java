@@ -2,6 +2,7 @@ package com.srobber.common.spring.mvc.interceptor;
 
 import com.srobber.common.config.CoreConfig;
 import com.srobber.common.trace.TraceContext;
+import com.srobber.common.util.StringUtil;
 import com.srobber.common.util.WebUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
@@ -24,24 +25,13 @@ public class ExecuteInterceptor extends HandlerInterceptorAdapter {
     /**
      * 消耗耗时阀值
      */
-    private final static int SPENT_MILLS = 1000;
+    private final static int SPENT_MILLS = 500;
 
     @Override
     public boolean preHandle(HttpServletRequest request,
                              HttpServletResponse response, Object handler) throws Exception {
-
         TraceContext.setTraceId(request);
-
-        if(log.isInfoEnabled()) {
-            String method = request.getMethod();
-            String uri = request.getRequestURI();
-            String params = WebUtil.getParameterStr(WebUtil.getParameterMap(request));
-            String userAgent = request.getHeader(CoreConfig.SECURITY_HEADER_USER_AGENT);
-            String token = request.getHeader(CoreConfig.SECURITY_HEADER_TOKEN);
-
-            log.info("request: {} {} {} {} {}",
-                    method, uri, params, userAgent, token);
-        }
+        request.setAttribute(CT_ATTR, System.currentTimeMillis());
         return true;
     }
 
@@ -57,13 +47,14 @@ public class ExecuteInterceptor extends HandlerInterceptorAdapter {
             request.removeAttribute(CT_ATTR);
         }
 
-        if(log.isInfoEnabled()) {
-            String method = request.getMethod();
-            String uri = request.getRequestURI();
-            log.info("response: {} {} {}ms",
-                    method, uri, cost);
+        String method = request.getMethod();
+        String uri = request.getRequestURI();
+        String params = WebUtil.getParameterStr(WebUtil.getParameterMap(request));
+        if(cost > SPENT_MILLS) {
+            log.warn("{} {} params={} cost={}ms", uri, method, params, cost);
+        } else {
+            log.info("{} {} params={} cost={}ms", uri, method, params, cost);
         }
-
         TraceContext.clearTraceId(request);
     }
 }

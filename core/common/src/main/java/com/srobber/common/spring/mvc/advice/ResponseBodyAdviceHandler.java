@@ -35,7 +35,11 @@ public class ResponseBodyAdviceHandler implements ResponseBodyAdvice {
     @Override
     public Object beforeBodyWrite(Object body, MethodParameter returnType, MediaType selectedContentType, Class selectedConverterType, ServerHttpRequest request, ServerHttpResponse response) {
         if(body instanceof JsonResult) {
-            log.info("jsonResult: {}", JsonUtil.toStr(body));
+            if(log.isDebugEnabled()) {
+                String method = request.getMethod().name();
+                String uri = request.getURI().toString();
+                log.debug("{} {} {}", uri, method, JsonUtil.toStr(body));
+            }
         }
         return body;
     }
