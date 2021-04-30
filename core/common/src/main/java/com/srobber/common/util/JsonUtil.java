@@ -17,6 +17,7 @@ import lombok.extern.slf4j.Slf4j;
 
 import java.io.IOException;
 import java.io.StringWriter;
+import java.text.SimpleDateFormat;
 import java.util.*;
 
 /**
@@ -59,6 +60,9 @@ public class JsonUtil {
 
 		//反序列化特性配置
 		mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+
+		//日期格式
+		mapper.setDateFormat(new SimpleDateFormat(DateFormatUtil.Pattern.YYYY_MM_DD_HH_MM_SS.getPattern()));
 
         //FIXME JSON和枚举类的处理强耦合在一起
 		//对于系统定义枚举值的特殊处理
