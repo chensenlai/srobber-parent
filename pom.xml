@@ -41,12 +41,32 @@
       </dependency>
       <dependency>
         <groupId>com.srobber</groupId>
+        <artifactId>srobber-swagger</artifactId>
+        <version>${package.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.srobber</groupId>
+        <artifactId>srobber-log</artifactId>
+        <version>${package.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.srobber</groupId>
         <artifactId>srobber-excel</artifactId>
         <version>${package.version}</version>
       </dependency>
       <dependency>
         <groupId>com.srobber</groupId>
-        <artifactId>srobber-swagger</artifactId>
+        <artifactId>srobber-auth</artifactId>
+        <version>${package.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.srobber</groupId>
+        <artifactId>srobber-jump</artifactId>
+        <version>${package.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.srobber</groupId>
+        <artifactId>srobber-mybatis</artifactId>
         <version>${package.version}</version>
       </dependency>
       <dependency>
@@ -61,7 +81,7 @@
       </dependency>
       <dependency>
         <groupId>com.srobber</groupId>
-        <artifactId>srobber-rocketmq</artifactId>
+        <artifactId>srobber-cache</artifactId>
         <version>${package.version}</version>
       </dependency>
       <dependency>
@@ -71,24 +91,10 @@
       </dependency>
       <dependency>
         <groupId>com.srobber</groupId>
-        <artifactId>srobber-cache</artifactId>
+        <artifactId>srobber-rocketmq</artifactId>
         <version>${package.version}</version>
       </dependency>
-      <dependency>
-        <groupId>com.srobber</groupId>
-        <artifactId>srobber-log</artifactId>
-        <version>${package.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>com.srobber</groupId>
-        <artifactId>srobber-auth</artifactId>
-        <version>${package.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>com.srobber</groupId>
-        <artifactId>srobber-mybatis</artifactId>
-        <version>${package.version}</version>
-      </dependency>
+
 
       <!-- 自定义短信发送模块 -->
       <dependency>

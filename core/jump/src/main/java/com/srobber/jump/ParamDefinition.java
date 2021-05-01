@@ -1,4 +1,4 @@
-package com.srobber.common.jump;
+package com.srobber.jump;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

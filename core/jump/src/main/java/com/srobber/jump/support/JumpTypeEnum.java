@@ -1,10 +1,10 @@
-package com.srobber.common.jump.support;
+package com.srobber.jump.support;
 
 import com.srobber.common.exeption.ParamException;
-import com.srobber.common.jump.BaseJumpTypeEnum;
-import com.srobber.common.jump.BaseParamBuilder;
-import com.srobber.common.jump.ParamDefinition;
-import com.srobber.common.jump.JumpTypeProtocol;
+import com.srobber.jump.BaseJumpTypeEnum;
+import com.srobber.jump.BaseParamBuilder;
+import com.srobber.jump.ParamDefinition;
+import com.srobber.jump.JumpTypeProtocol;
 import com.srobber.common.util.JsonUtil;
 import com.srobber.common.util.StringUtil;
 import lombok.AllArgsConstructor;

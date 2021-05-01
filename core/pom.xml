@@ -17,15 +17,16 @@
 
   <modules>
     <module>common</module>
-    <module>excel</module>
     <module>swagger</module>
-    <module>datasource</module>
-    <module>redis</module>
-    <module>rocketmq</module>
-    <module>cache</module>
-    <module>ratelimiter</module>
+    <module>excel</module>
     <module>log</module>
     <module>auth</module>
+    <module>jump</module>
     <module>mybatis</module>
+    <module>datasource</module>
+    <module>redis</module>
+    <module>cache</module>
+    <module>ratelimiter</module>
+    <module>rocketmq</module>
   </modules>
 </project>

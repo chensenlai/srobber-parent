@@ -1,4 +1,4 @@
-package com.srobber.common.jump;
+package com.srobber.jump;
 
 import com.srobber.common.exeption.ParamException;
 import com.srobber.common.util.StringUtil;
