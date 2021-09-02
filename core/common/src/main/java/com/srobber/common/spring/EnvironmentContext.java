@@ -7,6 +7,9 @@ import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.core.Ordered;
 import org.springframework.core.env.ConfigurableEnvironment;
 import org.springframework.core.env.Environment;
+import org.springframework.core.env.StandardEnvironment;
+
+import java.util.Arrays;
 
 /**
  * 环境上下文信息
@@ -33,16 +36,10 @@ public class EnvironmentContext implements SpringApplicationRunListener, Ordered
      * @return 返回是否生产环境
      */
     public static boolean isProdEnv() {
+        checkAndInitEnvironment();
         String[] profiles = env.getActiveProfiles();
-        if(profiles != null && profiles.length > 1) {
-            for(String profile : profiles) {
-                if("prod".equalsIgnoreCase(profile)
-                        || "product".endsWith(profile)) {
-                    return true;
-                }
-            }
-        }
-        return false;
+        return Arrays.stream(profiles)
+                .anyMatch(profile->"prod".equalsIgnoreCase(profile) || "product".endsWith(profile));
     }
 
     /**
@@ -53,6 +50,7 @@ public class EnvironmentContext implements SpringApplicationRunListener, Ordered
      * @return 配置value
      */
     public static <T> T getConfigValue(String key, Class<T> targetType) {
+        checkAndInitEnvironment();
         return getConfigValue(key, targetType, null);
     }
 
@@ -65,45 +63,18 @@ public class EnvironmentContext implements SpringApplicationRunListener, Ordered
      * @return 配置value
      */
     public static <T> T getConfigValue(String key, Class<T> targetType, T defaultValue) {
-        if(env == null) {
-            log.warn("Environment key {} use default {}", key, defaultValue);
-            return defaultValue;
-        }
+        checkAndInitEnvironment();
         if(!env.containsProperty(key)) {
             return defaultValue;
         }
         return env.getProperty(key, targetType);
     }
 
-
-
-    @Override
-    public void starting() {
-    }
-
-    @Override
-    public void environmentPrepared(ConfigurableEnvironment environment) {
-        env = environment;
-    }
-
-    @Override
-    public void contextPrepared(ConfigurableApplicationContext context) {
-    }
-
-    @Override
-    public void contextLoaded(ConfigurableApplicationContext context) {
-    }
-
-    @Override
-    public void started(ConfigurableApplicationContext context) {
-    }
-
-    @Override
-    public void running(ConfigurableApplicationContext context) {
-    }
-
-    @Override
-    public void failed(ConfigurableApplicationContext context, Throwable exception) {
+    private static void checkAndInitEnvironment() {
+        if(env == null) {
+            log.warn("!!! Environment not in springboot, fallback to use standard");
+            env = new StandardEnvironment();
+        }
     }
 
     @Override
