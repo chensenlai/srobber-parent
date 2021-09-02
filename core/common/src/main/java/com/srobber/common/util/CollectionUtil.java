@@ -3,7 +3,9 @@ package com.srobber.common.util;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
+import java.util.Objects;
 import java.util.Set;
+import java.util.function.Function;
 
 /**
  * 集合工具类
@@ -21,6 +23,13 @@ public class CollectionUtil {
 
     public static boolean isNotEmpty(Collection collection) {
         return !isEmpty(collection);
+    }
+
+    public <T, I> T getFromList(List<T> list, Function<T, I> mapper, I id) {
+        if(CollectionUtil.isEmpty(list)) {
+            return null;
+        }
+        return list.stream().filter(t-> Objects.equals(mapper.apply(t), id)).findAny().orElse(null);
     }
 
     public static <E> List<E> randomFetchList(List<E> list, int fetchNum) {
