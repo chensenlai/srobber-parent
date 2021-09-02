@@ -23,9 +23,6 @@ public class FloatFormatter implements Formatter<Float> {
 
     @Override
     public String print(Float object, Locale locale) {
-        if(object == null) {
-            return null;
-        }
         return object.toString();
     }
 }

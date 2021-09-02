@@ -11,8 +11,8 @@ import com.fasterxml.jackson.databind.module.SimpleModule;
 import com.fasterxml.jackson.databind.type.CollectionType;
 import com.srobber.common.exeption.WrapException;
 import com.srobber.common.enums.BaseEnum;
-import com.srobber.common.spring.mvc.message.EnumJsonDeserializer;
-import com.srobber.common.spring.mvc.message.EnumJsonSerializer;
+import com.srobber.common.jackson.EnumJsonDeserializer;
+import com.srobber.common.jackson.EnumJsonSerializer;
 import lombok.extern.slf4j.Slf4j;
 
 import java.io.IOException;

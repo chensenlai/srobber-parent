@@ -29,7 +29,7 @@ public class EnumFormatter<T extends BaseEnum> implements Formatter<T> {
 
     @Override
     public T parse(String text, Locale locale) throws ParseException {
-        if(text==null || text.isEmpty()) {
+        if(text.isEmpty()) {
             return null;
         }
 

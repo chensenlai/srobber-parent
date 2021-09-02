@@ -24,9 +24,6 @@ public class LongFormatter implements Formatter<Long> {
 
     @Override
     public String print(Long object, Locale locale) {
-        if(Objects.isNull(object)) {
-            return null;
-        }
         return object.toString();
     }
 }

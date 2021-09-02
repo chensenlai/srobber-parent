@@ -23,9 +23,6 @@ public class DoubleFormatter implements Formatter<Double> {
 
     @Override
     public String print(Double object, Locale locale) {
-        if(object == null) {
-            return null;
-        }
         return object.toString();
     }
 }

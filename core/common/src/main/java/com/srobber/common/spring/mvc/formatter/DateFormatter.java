@@ -25,9 +25,6 @@ public class DateFormatter implements Formatter<Date> {
 
     @Override
     public String print(Date object, Locale locale) {
-        if(object == null) {
-            return null;
-        }
         return DateFormatUtil.format(object, DateFormatUtil.Pattern.YYYY_MM_DD_HH_MM_SS);
     }
 }

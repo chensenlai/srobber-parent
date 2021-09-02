@@ -1,4 +1,4 @@
-package com.srobber.common.spring.mvc.message;
+package com.srobber.common.jackson;
 
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.core.JsonProcessingException;
